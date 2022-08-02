@@ -1,20 +1,42 @@
 import React from 'react'
 import './Tab.css'
-import DownloadIcon from '@mui/icons-material/Download';
-import UploadIcon from '@mui/icons-material/Upload';
+import DownloadIcon from '@mui/icons-material/Download'
+import UploadIcon from '@mui/icons-material/Upload'
 
 function Tab(props) {
-    return (
-        <div className='tab-element'>
-            <div className='tab-content'>
+  const {
+    content,
+    CVdownload,
+    CVupload,
+    haslink1,
+    haslink2,
+    link1,
+    link2,
+    color,
+  } = props
 
-                <p className='title'>{props.content}</p>
-                {/* <div className='icon'>
+  return (
+    <div className="tab-element" style={{ backgroundColor: color }}>
+      <div className="tab-content">
+        <div className='tab-content-text'>
+          <p className="title">{content}</p>
+          {haslink1 ? <a href={link1}>{link1}</a> : <></>}
+          {haslink2 ? <a href={link2}>{link2}</a> : <></>}
+        </div>
+
+        {CVdownload ? (
+          <div className="icon">
+            <DownloadIcon fontSize="large" marginTop="-200px" />
+          </div>
+        ) : (
+          <></>
+        )}
+        {/* <div className='icon'>
                     <DownloadIcon fontSize='2rem' top='-200px'/>
                 </div> */}
-            </div>
-        </div>
-    )
+      </div>
+    </div>
+  )
 }
 
 export default Tab

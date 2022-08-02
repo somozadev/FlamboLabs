@@ -11,6 +11,7 @@ import Profile from './Profile.js';
 import MainPage from "./MainPage";
 import { debug } from "console";
 import SelectUserType from "./SelectUserType";
+import Configuration from "./Configuration";
 
 function App() {
   const [user, setUser] = useState('');
@@ -30,8 +31,11 @@ function App() {
         <Router>
           <Header user={user} hideHeader = {hideHeader} setHideHeader = {setHideHeader} OnlyHideHeader = {OnlyHideHeader} OnlyUnHideHeader = {OnlyUnHideHeader} />
           <Switch>
-            <Route path={'/profile'}>
+          <Route path={'/profile'}>
               <Profile />
+            </Route>
+            <Route path={'/configuration'}>
+              <Configuration />
             </Route>
             <Route path={'/home'}>
               <Home user={user} setUser={setUser}/>
