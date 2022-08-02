@@ -8,35 +8,50 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Header from './Header.js';
 import Home from './Home.js';
 import Profile from './Profile.js';
+import MainPage from "./MainPage";
+import AppContext from "./AppContext";
 
 function App() {
   const [user, setUser] = useState('');
 
+  const [hideNavbar, setHideNavbar] = useState(true);
+
+  const toggleHideNavbar = () => {
+    hideNavbar ? setHideNavbar(true) : setHideNavbar(false);
+  };
+
+  const appSettings = {
+    hideNavbar: hideNavbar,
+    toggleHideNavbar,
+  };
+
   return (
-    <div className="App">
+    <AppContext.Provider value={appSettings}>
+      <div className="App">
 
-      <Router>
-        <Header user={user} />
-        <Switch>
-          <Route path={'/profile'}>
-            <Profile />
-          </Route>
-          <Route path={'/home'}>
-            <Home user={user} setUser={setUser} />
-          </Route>
-          <Route path={'/menu'}>
-            Esto es el menu
-          </Route>
-          <Route path={'/'}>
-            nada
-          </Route>
+        <Router>
+          <Header user={user} />
+          <Switch>
+            <Route path={'/profile'}>
+              <Profile />
+            </Route>
+            <Route path={'/home'}>
+              <Home user={user} setUser={setUser} />
+            </Route>
+            <Route path={'/menu'}>
+              Esto es el menu
+            </Route>
+            <Route path={'/'}>
+              <MainPage />
+            </Route>
 
-        </Switch>
-      </Router>
+          </Switch>
+        </Router>
 
 
 
-    </div>
+      </div>
+    </AppContext.Provider>
   );
 }
 

@@ -1,0 +1,17 @@
+.main_logo  { 
+    min-width: 300px; 
+    min-height: 300px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-top: 6rem;
+}
+.MainPage p { 
+
+    font-family: 'Nunito', sans-serif;
+    text-align: center;
+    font-weight: bold;
+    font-size: 2rem;
+    color: rgb(150, 154, 156);
+}

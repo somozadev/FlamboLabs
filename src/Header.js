@@ -6,16 +6,20 @@ import HomeIcon from '@mui/icons-material/Home';
 import logo from './icon.png'
 import { IconButton } from '@mui/material';
 import { Link, useHistory } from 'react-router-dom';
+import AppContext from './AppContext';
 
 function Header(props) {
     const { user, setUser } = props;
     return (
-        <div className='header'>
-            {user ? (<Link to={"/profile"}>
-                <IconButton>
-                    <PersonIcon className='header__icon' fontSize='large' />
-                </IconButton>
-            </Link>) : (<Link to={"/home"}><IconButton disabled={true}><PersonIcon className='header__icon' fontSize='large' /></IconButton></Link>)}
+
+        < div className='header' >
+            {
+                user ? (<Link to={"/profile"} >
+                    <IconButton>
+                        <PersonIcon className='header__icon' fontSize='large' />
+                    </IconButton>
+                </Link>) : (<Link to={"/home"}><IconButton disabled={true}><PersonIcon className='header__icon' fontSize='large' /></IconButton></Link>)
+            }
 
 
             <Link to={"/home"}>
@@ -28,7 +32,10 @@ function Header(props) {
                     <HomeIcon className='header__icon' fontSize='large' />
                 </IconButton>
             </Link>
-        </div>
+        </div >
+            
+        
+
     )
 }
 

@@ -6,6 +6,7 @@ import { singinWithGoogle } from './Firebase';
 
 
 export default function Home(props) {
+    
     const { user, setUser } = props;
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
