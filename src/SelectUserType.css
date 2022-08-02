@@ -1,0 +1,56 @@
+.link button {
+    border: none;
+    outline: none;
+    border-radius: 60px;
+    width: 100%;
+    padding: 15px 15px 15px 15px;
+    color: #fff;
+    font-size: 25px;
+    letter-spacing: 1px;
+    background: #603bbb;
+    cursor: pointer;  
+    transition: 0.25s;
+ 
+  }
+  a{ 
+    max-width: 350px;
+    min-width: 180px;
+    width: 100%;
+  }
+  .selector-container { 
+    margin-top: 10rem;
+    font-family: 'Nunito', sans-serif;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .selector-container p{ 
+    font-weight: lighter;
+    color: #a3a0a8;
+  }
+  .select-button {
+    max-width: 350px;
+    min-width: 180px;
+    margin-bottom: 1rem;
+    box-shadow: 0 9px #c5b2f6;
+  }
+  .select-button:active {
+    box-shadow: 0 5px #c5b2f6;
+    transform: translateY(4px);
+  }
+
+
+.select-button:hover,
+.select-button:focus {
+  background-color: #af92f6;
+}
+
+
+.header__logo{
+  margin-top: 15px;
+  height: 45px; 
+  object-fit: contain;
+}
+

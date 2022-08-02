@@ -49,6 +49,35 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   background-color: rgba(227, 178, 246, 0.408);
 }
+
+.select-account-type-user {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 120px;
+  border-radius: 60px;
+  color: rgb(67, 119, 110);
+  font-weight: 600;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-color: #a4f1e768;
+}
+.select-account-type-company {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 140px;
+  border-radius: 60px;
+  color: rgb(109, 67, 119);
+  font-weight: 600;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-color: rgba(227, 178, 246, 0.408);
+}
 button {
   border: none;
   outline: none;
@@ -73,8 +102,8 @@ button {
 }
 
 .login-container {
-  padding: 40px;
-  margin: 10px 10px 10px 10px;
+  padding: 0px 40px 40px 40px;
+  margin: 0px 10px 10px 10px;
   width: 100%;
   max-width: 70vw;
   display: flex;
@@ -155,6 +184,6 @@ button {
 
 .login .login-container .error-msg {
   color: red;
-  font-size: 25pxx;
+  font-size: 15px;
   padding-top: 10px;
 }

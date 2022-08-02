@@ -3,9 +3,15 @@ import GoogleIcon from '@mui/icons-material/Google';
 import { IconButton } from '@mui/material';
 import Switch from '@mui/material/Switch';
 import WalletButton from './WalletButton';
+import { ContactMail, ContactPhone } from '@mui/icons-material';
 
 const Login = (props) => {
-    const { email,
+    const {
+        contactPhone,
+        setContactPhone,
+        companyName,
+        setCompanyName,
+        email,
         setEmail,
         password,
         setPassword,
@@ -20,7 +26,9 @@ const Login = (props) => {
         handleGoogleSingin,
         clearErrors,
         webTypeSwitch,
-        handleSwitchChange } = props;
+        handleSwitchChange,
+        accountTypeSwitch,
+        handleAccountSwitchChange } = props;
 
     const [walletButtonState, setWalletButtonState] = useState(false);
 
@@ -37,7 +45,12 @@ const Login = (props) => {
     };
     return (
         <>
-            {hasAccount ? (<></>) : (<>
+            {hasAccount ? (<>
+                <div className={accountTypeSwitch ? 'select-account-type-company' : 'select-account-type-user'}>
+                            <p>{accountTypeSwitch ? 'company' : 'user'}</p>
+                            <Switch checked={accountTypeSwitch} size="large" onClick={handleAccountSwitchChange} color='secondary' name='switch' about='switch account type' inputProps={{ "arial-label": "user/company" }} />
+                        </div>
+                        </>) : (<>
                 <div className={webTypeSwitch ? 'select-web-type-web3' : 'select-web-type-web2'}>
                     <p>{webTypeSwitch ? 'web3' : 'web2'}</p>
                     <Switch checked={webTypeSwitch} size="large" onClick={handleSwitchChange} color='secondary' name='switch' about='test' inputProps={{ "arial-label": "web3/web2" }} />
@@ -53,26 +66,54 @@ const Login = (props) => {
 
                 </>) : (<>
                     {hasAccount ? (<>
+                        
+                    {accountTypeSwitch ? (<>
                         <div className='login-container'>
-                            <label>Username</label>
-                            <input type="text" autoFocus required value={email} onChange={e => setEmail(e.target.value)} />
-                            <p className='error-msg'>{emailError}</p>
-                            <label>Password</label>
-                            <input type="password" required value={password} onChange={e => setPassword(e.target.value)} />
-                            <label>Confirm Password</label>
-                            <input type="password" required value={confirmPassword} onChange={e => setConfirmPassword(e.target.value)} />
-                            <p className='error-msg'>{passwordError}</p>
-                            <div className='google-button-container'>
-                                <button onClick={handleSignup} className='google-button-container-left-btn'>Register</button>
-                                <IconButton className='google__icon' color="secondary" onClick={handleGoogleSingin}>
-                                    <GoogleIcon fontSize='large' />
-                                </IconButton>
-                            </div>
-                            <p>Have an account? <span onClick={() => { setHasAccount(!hasAccount); clearErrors() }}>Login</span></p>
-                        </div>
+                       {/* user */}
+                       <label>Company name</label>
+                       <input type="text" autoFocus required value={companyName} onChange={e => setCompanyName(e.target.value)} />
+                       <label>Company e-mail</label>
+                       <input type="text" autoFocus required value={email} onChange={e => setEmail(e.target.value)} />
+                       <label>Company phone</label>
+                       <input type="text" autoFocus required value={contactPhone} onChange={e => setContactPhone(e.target.value)} />
+                       <label>Password</label>
+                       <input type="password" required value={password} onChange={e => setPassword(e.target.value)} />
+                       <label>Confirm Password</label>
+                       <input type="password" required value={confirmPassword} onChange={e => setConfirmPassword(e.target.value)} />
+                       <p className='error-msg'>{emailError}</p>
+                       <p className='error-msg'>{passwordError}</p>
+                       <div className='google-button-container'>
+                           <button onClick={handleSignup} className='google-button-container-left-btn'>Register</button>
+                           {/* <IconButton className='google__icon' color="secondary" onClick={handleGoogleSingin}>
+                               <GoogleIcon fontSize='large' />
+                           </IconButton> */}
+                       </div>
+                       <p>Have an account? <span onClick={() => { setHasAccount(!hasAccount); clearErrors() }}>Login</span></p>
+                   </div>
                     </>) : (<>
                         <div className='login-container'>
-                            <label>Username</label>
+                       
+                       <label>Username</label>
+                       <input type="text" autoFocus required value={email} onChange={e => setEmail(e.target.value)} />
+                       <label>Password</label>
+                       <input type="password" required value={password} onChange={e => setPassword(e.target.value)} />
+                       <label>Confirm Password</label>
+                       <input type="password" required value={confirmPassword} onChange={e => setConfirmPassword(e.target.value)} />
+                       <p className='error-msg'>{emailError}</p>
+                       <p className='error-msg'>{passwordError}</p>
+                       <div className='google-button-container'>
+                           <button onClick={handleSignup} className='google-button-container-left-btn'>Register</button>
+                           <IconButton className='google__icon' color="secondary" onClick={handleGoogleSingin}>
+                               <GoogleIcon fontSize='large' />
+                           </IconButton>
+                       </div>
+                       <p>Have an account? <span onClick={() => { setHasAccount(!hasAccount); clearErrors() }}>Login</span></p>
+                   </div>
+                    </>)}
+                        
+                    </>) : (<>
+                        <div className='login-container'>
+                            <label>Username / e-mail</label>
                             <input type="text" autoFocus required value={email} onChange={e => setEmail(e.target.value)} />
                             <p className='error-msg'>{emailError}</p>
                             <label>Password</label>

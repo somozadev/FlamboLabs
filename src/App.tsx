@@ -9,40 +9,41 @@ import Header from './Header.js';
 import Home from './Home.js';
 import Profile from './Profile.js';
 import MainPage from "./MainPage";
-import AppContext from "./AppContext";
+import { debug } from "console";
+import SelectUserType from "./SelectUserType";
 
 function App() {
   const [user, setUser] = useState('');
+  const [hideHeader, setHideHeader] = useState(true); 
 
-  const [hideNavbar, setHideNavbar] = useState(true);
-
-  const toggleHideNavbar = () => {
-    hideNavbar ? setHideNavbar(true) : setHideNavbar(false);
+  const OnlyHideHeader = () => {
+    setHideHeader(true);
+  };
+  const OnlyUnHideHeader = () => {
+    setHideHeader(false);
   };
 
-  const appSettings = {
-    hideNavbar: hideNavbar,
-    toggleHideNavbar,
-  };
 
   return (
-    <AppContext.Provider value={appSettings}>
       <div className="App">
 
         <Router>
-          <Header user={user} />
+          <Header user={user} hideHeader = {hideHeader} setHideHeader = {setHideHeader} OnlyHideHeader = {OnlyHideHeader} OnlyUnHideHeader = {OnlyUnHideHeader} />
           <Switch>
             <Route path={'/profile'}>
               <Profile />
             </Route>
             <Route path={'/home'}>
-              <Home user={user} setUser={setUser} />
+              <Home user={user} setUser={setUser}/>
             </Route>
             <Route path={'/menu'}>
               Esto es el menu
             </Route>
+            <Route path={'/select'}>
+              <SelectUserType hideHeader = {hideHeader} setHideHeader = {setHideHeader}  OnlyHideHeader = {OnlyHideHeader} OnlyUnHideHeader = {OnlyUnHideHeader}/>
+            </Route>
             <Route path={'/'}>
-              <MainPage />
+              <MainPage hideHeader = {hideHeader} setHideHeader = {setHideHeader}  OnlyHideHeader = {OnlyHideHeader} OnlyUnHideHeader = {OnlyUnHideHeader}/>
             </Route>
 
           </Switch>
@@ -51,7 +52,6 @@ function App() {
 
 
       </div>
-    </AppContext.Provider>
   );
 }
 

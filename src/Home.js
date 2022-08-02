@@ -9,14 +9,23 @@ export default function Home(props) {
     
     const { user, setUser } = props;
     const [email, setEmail] = useState('');
+    const [contactPhone, setContactPhone] = useState('');
+    const [companyName, setCompanyName] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [emailError, setEmailError] = useState('');
     const [passwordError, setPasswordError] = useState('');
     const [hasAccount, setHasAccount] = useState(false);
     const [webTypeSwitch, setwebTypeSwitch] = useState(false);
+    const [accountTypeSwitch,setaccountTypeSwitch] = useState(false);
 
+    const handleAccountSwitchChange= () => { 
+        clearInputs();
+        clearErrors();
+        setaccountTypeSwitch(!accountTypeSwitch);
+    }
     const handleSwitchChange = () => {
+        clearInputs();
         clearErrors();
         setwebTypeSwitch(!webTypeSwitch);
     }
@@ -98,6 +107,10 @@ export default function Home(props) {
                     <button onClick={handleLogout}> logout </button>
                 ) : (
                     <Login
+                        contactPhone = {contactPhone}
+                        setContactPhone = {setContactPhone}
+                        companyName = {companyName}
+                        setCompanyName = {setCompanyName}
                         email={email}
                         setEmail={setEmail}
                         password={password}
@@ -114,6 +127,8 @@ export default function Home(props) {
                         clearErrors={clearErrors}
                         webTypeSwitch={webTypeSwitch}
                         handleSwitchChange = {handleSwitchChange}
+                        accountTypeSwitch = {accountTypeSwitch}
+                        handleAccountSwitchChange = {handleAccountSwitchChange}
                     />
                 )
             }

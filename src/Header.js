@@ -6,13 +6,15 @@ import HomeIcon from '@mui/icons-material/Home';
 import logo from './icon.png'
 import { IconButton } from '@mui/material';
 import { Link, useHistory } from 'react-router-dom';
-import AppContext from './AppContext';
 
 function Header(props) {
     const { user, setUser } = props;
+    const {hideHeader, setHideHeader} = props; 
+    props.OnlyUnHideHeader();
     return (
-
-        < div className='header' >
+        <>
+        {!hideHeader ? (
+            < div className='header' >
             {
                 user ? (<Link to={"/profile"} >
                     <IconButton>
@@ -33,7 +35,9 @@ function Header(props) {
                 </IconButton>
             </Link>
         </div >
-            
+        ) : (< div className='header' ></div>)}
+        
+        </> 
         
 
     )
