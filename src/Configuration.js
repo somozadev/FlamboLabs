@@ -1,6 +1,7 @@
 import React from 'react'
 import './Configuration.css'
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import logo from './icon.png'
 
 function Configuration(props) {
   
@@ -15,6 +16,9 @@ function Configuration(props) {
             <div className='config-tab-container-p'><p>Legal information</p></div>
             <div className='config-tab'> <p>licences</p> <div className='config-tab-icon'><ArrowForwardIosIcon/> </div></div>
             <div className='config-tab'> <p>terms and conditions</p> <div className='config-tab-icon'><ArrowForwardIosIcon/> </div></div>
+            <div className='config-tab-logout'> <p>logout</p></div>
+            <div className='logo'> <img src={logo}></img> <p>version 0.0.1b </p></div>
+            <div className='config-tab-deleteaccount'> <p>delete account</p></div>
         </div>
     </div>
   )
