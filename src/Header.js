@@ -29,7 +29,7 @@ function Header(props) {
                     <img src={logo} className='header__logo' alt='logo'></img>
                 </IconButton>
             </Link>
-            <Link to={"/menu"}>
+            <Link to={"/home"}>
                 <IconButton>
                     <HomeIcon className='header__icon' fontSize='large' />
                 </IconButton>
