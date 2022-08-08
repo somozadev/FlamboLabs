@@ -13,26 +13,36 @@
   padding: auto;
   font-size: 0.8rem;
 }
-.tab-content-text{
+
+.tab-content-text {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
 }
+
 .tab-content-text a {
   color: blueviolet;
 }
+
 .tab-content {
   width: inherit;
   min-width: 16vw;
   margin: 20px;
   justify-content: space-evenly;
   display: inline-flex;
-  font-family: 'Nunito', sans-serif;  
+  font-family: 'Nunito', sans-serif;
   font-size: 1rem;
   text-align: justify;
 }
-.icon{
+
+.icon {
   margin-top: 8px;
   vertical-align: bottom;
+}
+
+.icon a {
+  text-decoration: none;
+  color: rgb(64, 10, 75);
+
 }

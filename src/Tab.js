@@ -2,6 +2,7 @@ import React from 'react'
 import './Tab.css'
 import DownloadIcon from '@mui/icons-material/Download'
 import UploadIcon from '@mui/icons-material/Upload'
+import { Link, useHistory } from 'react-router-dom'
 
 function Tab(props) {
   const {
@@ -25,8 +26,8 @@ function Tab(props) {
         </div>
 
         {CVdownload ? (
-          <div className="icon">
-            <DownloadIcon fontSize="large" marginTop="-200px" />
+          <div className="icon" >
+            <Link to="/cv.pdf" target= "_blank" download><DownloadIcon fontSize="large" marginTop="-200px" /></Link>
           </div>
         ) : (
           <></>

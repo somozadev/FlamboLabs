@@ -103,7 +103,7 @@ export default function Home(props) {
       {user ? (
         <>
           <HomeSearchBar />
-          <button onClick={handleLogout}> logout </button>
+          {/* <button onClick={handleLogout}> logout </button> */}
         </>
       ) : (
         <Login

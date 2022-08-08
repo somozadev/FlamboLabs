@@ -7,9 +7,13 @@
     align-items: center;
     flex-direction: row;
     width: 450px;
-    max-height: 300px;
+    max-height: 320px;
     transition: all 0.1s;
     margin-top: 20px;
+}
+.find-item-applied{ 
+    box-shadow: 0 4px 8px 0 rgba(255, 187, 109, 0.546), 0 6px 20px 0 rgba(255, 187, 109, 0.546);
+    background-color: rgb(255, 251, 254);
 }
 .find-item:hover{ 
     box-shadow: 0 4px 8px 0 rgba(255, 109, 228, 0.546), 0 6px 20px 0 rgba(255, 109, 228, 0.2);
@@ -20,7 +24,7 @@
 
 .find-item_image{
     width: auto;
-    height: 300px;
+    height: 320px;
     max-width: 200px;
     display: flex;
     justify-content: center;
@@ -36,7 +40,10 @@
 }
 .find-item_content{
     width: 450px;
-    max-height: 300px;
+    height: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
 .find-item_content h2{ 
     margin: 10px 20px 5px 4px; 
@@ -80,7 +87,20 @@
     
     padding-left: 5px;
 }
-
+.read-more {
+    text-decoration: underline;
+    cursor: pointer;
+    color: blueviolet;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    font-size: 10px;
+    font-style: italic;
+    margin: 0;
+    padding: 0;
+    padding-left: 8px;
+    padding-bottom: 8px;
+}
 .find-item_content-footer_apply button{
     font-size: 15px;
     padding: auto;
@@ -94,4 +114,10 @@
 }
 .find-item_content-footer_apply button p{
     margin-top: -10px;
+}
+.find-item_content-footer_apply .redbutton { 
+    background-color: rgb(230, 60, 60);   
+}
+.find-item_content-footer_apply  .redbutton:hover{
+    background-color: rgb(230, 60, 60);   
 }

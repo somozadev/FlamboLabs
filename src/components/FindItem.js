@@ -29,93 +29,107 @@ const FindItem = (props) => {
     companyReviews,
     companyImage,
     companySalary,
+    hide,
   } = props
+
+  const [applied, setApplied] = useState(false)
+  const applyButtonClick = () => {
+    let boolean = !applied
+    setApplied(boolean)
+  }
+  let classnameextra = applied ? ' find-item-applied' : ''
   return (
     <>
-      <div className="find-item">
-        <div className="find-item_image">
-          <img src={companyImage} />
-          {/* companyImage */}
-        </div>
-        <div className="find-item_content">
-          <div className="find-item_content-header">
-            <h2>{offerTitle}</h2>
-            <h5>
-              {companyName} | {companyLocation}
-            </h5>
-            {/* companyLocation */}
-          </div>
-          <div className="find-item_content-list">
-            <ul>
-              <li>{companyRequisite1}</li>
-              <li>{companyRequisite2}</li>
-              <li>{companyRequisite3}</li>
-              <li>{companyRequisite4}</li>
-            </ul>
-          </div>
-          <div className="find-item_content-footer">
-            <div className="stars-container">   
-              {companyStars === 5 ? (
-                <>
-                  <FiveStars />
-                </>
-              ) : (
-                <>
-                  {companyStars === 4.5 ? (
+      {hide ? (
+        <></>
+      ) : (
+        <>
+          <div className={'find-item ' + hide + classnameextra}>
+            <div className="find-item_image">
+              <img src={companyImage} />
+              {/* companyImage */}
+            </div>
+            <div className="find-item_content">
+              <div className="find-item_content-header">
+                <h2>{offerTitle}</h2>
+                <h5>
+                  {companyName} | {companyLocation}
+                </h5>
+                {/* companyLocation */}
+              </div>
+              <div className="find-item_content-list">
+                <ul>
+                  <li>{companyRequisite1}</li>
+                  <li>{companyRequisite2}</li>
+                  <li>{companyRequisite3}</li>
+                  <li>{companyRequisite4}</li>
+                </ul>
+              </div>
+              <div className="find-item_content-footer">
+                <div className="stars-container">
+                  {companyStars === 5 ? (
                     <>
-                      <OneHollowStarsFourStarOneHalfStar />
+                      <FiveStars />
                     </>
                   ) : (
                     <>
-                      {companyStars === 4 ? (
+                      {companyStars === 4.5 ? (
                         <>
-                          <OneHollowStarsFourStar />
+                          <OneHollowStarsFourStarOneHalfStar />
                         </>
                       ) : (
                         <>
-                          {companyStars === 3.5 ? (
+                          {companyStars === 4 ? (
                             <>
-                              <OneHollowStarsThreeStarOneHalfStar />
+                              <OneHollowStarsFourStar />
                             </>
                           ) : (
                             <>
-                              {companyStars === 3 ? (
+                              {companyStars === 3.5 ? (
                                 <>
-                                  <TwoHollowStarsThreeStar />
+                                  <OneHollowStarsThreeStarOneHalfStar />
                                 </>
                               ) : (
                                 <>
-                                  {companyStars === 2.5 ? (
+                                  {companyStars === 3 ? (
                                     <>
-                                      <TwoHollowStarsTwoStarOneHalfStar />
+                                      <TwoHollowStarsThreeStar />
                                     </>
                                   ) : (
                                     <>
-                                      {companyStars === 2 ? (
+                                      {companyStars === 2.5 ? (
                                         <>
-                                          <ThreeHollowStarsTwoStar />
+                                          <TwoHollowStarsTwoStarOneHalfStar />
                                         </>
                                       ) : (
                                         <>
-                                          {companyStars === 1.5 ? (
+                                          {companyStars === 2 ? (
                                             <>
-                                              <ThreeHollowStarsOneStarOneHalfStar />
+                                              <ThreeHollowStarsTwoStar />
                                             </>
                                           ) : (
                                             <>
-                                              {companyStars === 1 ? (
+                                              {companyStars === 1.5 ? (
                                                 <>
-                                                  <FourHollowStarsOneStar />
+                                                  <ThreeHollowStarsOneStarOneHalfStar />
                                                 </>
                                               ) : (
                                                 <>
-                                                  {companyStars === 0.5 ? (
+                                                  {companyStars === 1 ? (
                                                     <>
-                                                      <FourHollowStarsOneHalfStar />
+                                                      <FourHollowStarsOneStar />
                                                     </>
                                                   ) : (
                                                     <>
-                                                      <FiveHollowStars />
+                                                      {companyStars === 0.5 ? (
+                                                        <>
+                                                          <FourHollowStarsOneHalfStar />
+                                                        </>
+                                                      ) : (
+                                                        <>
+                                                          <FiveHollowStars />
+                                                        </>
+                                                      )}
                                                     </>
                                                   )}
                                                 </>
@@ -134,18 +148,24 @@ const FindItem = (props) => {
                       )}
                     </>
                   )}
-                </>
-              )}
-              <p>({companyReviews})</p>
-            </div>
-            <div className="find-item_content-footer_apply">
-              <button>
-                <p>Apply</p>
-              </button>
+                  <p>({companyReviews})</p>
+                </div>
+                <div className="find-item_content-footer_apply">
+                  <button
+                    onClick={applyButtonClick}
+                    className={applied ? 'redbutton' : ''}
+                  >
+                    {applied ? <p>Unapply</p> : <p>Apply</p>}
+                  </button>
+                </div>
+              </div>
+              <div className="read-more">
+                <p>Read More...</p>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
+        </>
+      )}
     </>
   )
 }
