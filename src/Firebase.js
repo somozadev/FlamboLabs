@@ -2,6 +2,8 @@ import firebase from 'firebase'
 import React, { useState } from 'react'
 import { ref, getDownloadURL, uploadBytesResumable  } from 'firebase/storage'
 
+
+
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
   authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
@@ -19,5 +21,7 @@ provider.setCustomParameters({ prompt: 'select_account' });
 export const singinWithGoogle = () => auth.signInWithPopup(provider);
 export const storage = firebase.storage();
 
+export const chatStorage = firebase.firestore();
+export const chatAnalytics = firebase.analytics();
 
 export default firebaseApp

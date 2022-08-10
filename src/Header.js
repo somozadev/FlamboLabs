@@ -6,6 +6,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import logo from './icon.png'
 import { IconButton } from '@mui/material';
 import { Link, useHistory } from 'react-router-dom';
+import { BubbleChart } from '@mui/icons-material';
 
 function Header(props) {
     const { user, setUser } = props;
@@ -29,9 +30,9 @@ function Header(props) {
                     <img src={logo} className='header__logo' alt='logo'></img>
                 </IconButton>
             </Link>
-            <Link to={"/home"}>
+            <Link to={"/chat"}>
                 <IconButton>
-                    <HomeIcon className='header__icon' fontSize='large' />
+                    <ChatBubbleIcon className='header__icon' fontSize='large' />
                 </IconButton>
             </Link>
         </div >

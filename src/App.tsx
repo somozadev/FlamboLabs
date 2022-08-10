@@ -12,6 +12,7 @@ import MainPage from "./MainPage";
 import { debug } from "console";
 import SelectUserType from "./SelectUserType";
 import Configuration from "./Configuration";
+import Chat  from "./Chat";
 
 function App() {
   const [user, setUser] = useState('');
@@ -40,8 +41,8 @@ function App() {
             <Route path={'/home'}>
               <Home user={user} setUser={setUser}/>
             </Route>
-            <Route path={'/menu'}>
-              Esto es el menu
+            <Route path={'/chat'}>
+              <Chat/>
             </Route>
             <Route path={'/select'}>
               <SelectUserType hideHeader = {hideHeader} setHideHeader = {setHideHeader}  OnlyHideHeader = {OnlyHideHeader} OnlyUnHideHeader = {OnlyUnHideHeader}/>
