@@ -60,7 +60,7 @@ const Login = (props) => {
                 {webTypeSwitch ? (<>
                     <div className='login-container'>
                         {/* <label>Register with wallet</label> */}
-                        {<p>{String(walletButtonState)}</p>}
+                        {/* {<p>{String(walletButtonState)}</p>} */}
                         <WalletButton />
                     </div>
 

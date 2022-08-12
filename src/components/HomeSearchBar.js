@@ -164,7 +164,28 @@ const HomeSearchBar = (props) => {
       companySalary: '',
       hide: false,
       tags: ['data', 'analytics', 'miami', 'design', 'excel', 'python'],
-    },
+    },    
+    {
+      offerTitle: 'Solana programmer',
+      companyName: 'SmartDevelopersUnited',
+      companyLocation: 'Barcelona',
+      companyRequisite1:
+        '',
+      companyRequisite2:
+        '',
+      companyRequisite3:
+        '',
+      companyRequisite4:
+        '',
+      companyExtraText: '',
+      companyStars: 0,
+      companyReviews: '',
+      companyImage: null,
+      companySalary: '',
+      hide: true,
+      tags: [''],
+    }
+
     // {
     //   offerTitle: '',
     //   companyName: '',
